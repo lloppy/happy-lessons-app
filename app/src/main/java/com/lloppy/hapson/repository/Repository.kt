@@ -10,12 +10,12 @@ object Repository {
                     id = "class1",
                     name = "Математика",
                     teachers = listOf(
-                        Teacher(id = "teacher1", name = "Иванов Иван Иванович"),
-                        Teacher(id = "teacher2", name = "Петрова Анна Сергеевна")
+                        User(id = "teacher1", name = "Иванов Иван Иванович", Role.TEACHER),
+                        User(id = "teacher2", name = "Петрова Анна Сергеевна", Role.TEACHER)
                     ),
                     students = listOf(
-                        Student(id = "student1", name = "Смирнов Алексей Николаевич"),
-                        Student(id = "student2", name = "Попова Ольга Викторовна")
+                        User(id = "student1", name = "Смирнов Алексей Николаевич", Role.STUDENT),
+                        User(id = "student2", name = "Попова Ольга Викторовна", Role.STUDENT)
                     ),
                     schedule = Schedule(
                         lessons = listOf(
@@ -28,10 +28,10 @@ object Repository {
                     id = "class2",
                     name = "Физика",
                     teachers = listOf(
-                        Teacher(id = "teacher3", name = "Сидоров Алексей Викторович")
+                        User(id = "teacher3", name = "Сидоров Алексей Викторович", Role.TEACHER)
                     ),
                     students = listOf(
-                        Student(id = "student3", name = "Кузнецов Сергей Павлович")
+                        User(id = "student3", name = "Кузнецов Сергей Павлович", Role.STUDENT)
                     ),
                     schedule = Schedule(
                         lessons = listOf(
@@ -44,10 +44,10 @@ object Repository {
                     id = "class3",
                     name = "Литература",
                     teachers = listOf(
-                        Teacher(id = "teacher4", name = "Федорова Елена Владимировна")
+                        User(id = "teacher4", name = "Федорова Елена Владимировна", Role.TEACHER)
                     ),
                     students = listOf(
-                        Student(id = "student4", name = "Лебедева Анна Игоревна")
+                        User(id = "student4", name = "Лебедева Анна Игоревна", Role.STUDENT)
                     ),
                     schedule = Schedule(
                         lessons = listOf(
@@ -66,11 +66,11 @@ object Repository {
                     id = "class4",
                     name = "Химия",
                     teachers = listOf(
-                        Teacher(id = "teacher5", name = "Кузнецова Мария Петровна")
+                        User(id = "teacher5", name = "Кузнецова Мария Петровна", Role.TEACHER)
                     ),
                     students = listOf(
-                        Student(id = "student5", name = "Григорьев Максим Андреевич"),
-                        Student(id = "student6", name = "Семенова Наталья Викторовна")
+                        User(id = "student5", name = "Григорьев Максим Андреевич", Role.STUDENT),
+                        User(id = "student6", name = "Семенова Наталья Викторовна", Role.STUDENT)
                     ),
                     schedule = Schedule(
                         lessons = listOf(
@@ -83,7 +83,7 @@ object Repository {
                     id = "class5",
                     name = "Биология",
                     teachers = listOf(
-                        Teacher(id = "teacher6", name = "Семенов Николай Андреевич")
+                        User(id = "teacher6", name = "Семенов Николай Андреевич", Role.TEACHER)
                     ),
                     students = listOf(),
                     schedule = Schedule(
@@ -100,11 +100,11 @@ object Repository {
                     id = "class6",
                     name = "История",
                     teachers = listOf(
-                        Teacher(id = "teacher7", name = "Морозова Светлана Александровна")
+                        User(id = "teacher7", name = "Морозова Светлана Александровна", Role.TEACHER)
                     ),
                     students = listOf(
-                        Student(id = "student7", name = "Тихонов Игорь Валерьевич"),
-                        Student(id = "student8", name = "Захарова Дарья Сергеевна")
+                        User(id = "student7", name = "Тихонов Игорь Валерьевич", Role.STUDENT),
+                        User(id = "student8", name = "Захарова Дарья Сергеевна", Role.STUDENT)
                     ),
                     schedule = Schedule(
                         lessons = listOf(

@@ -9,8 +9,8 @@ data class Organization(
 data class ClassModel(
     val id: String,
     var name: String,
-    val teachers: List<Teacher> = mutableListOf(),
-    val students: List<Student> = mutableListOf(),
+    val teachers: List<User> = mutableListOf(),
+    val students: List<User> = mutableListOf(),
     val schedule: Schedule
 )
 
@@ -24,14 +24,14 @@ data class Schedule(
     val lessons: List<Lesson>
 )
 
-data class Teacher(
+data class User(
     val id: String,
     val name: String,
+    val role: Role,
     val classModels: List<ClassModel> = mutableListOf()
 )
 
-data class Student(
-    val id: String,
-    val name: String,
-    val classModels: List<ClassModel> = mutableListOf()
-)
+enum class Role {
+    STUDENT,
+    TEACHER
+}

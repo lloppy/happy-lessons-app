@@ -24,7 +24,7 @@ fun SetupNavGraph(
 ) {
     NavHost(
         navController = navHostController,
-        startDestination = Screen.Classes.route
+        startDestination = Screen.Groups.route
     ) {
         composable(Screen.Groups.route) {
             GroupsScreen()
@@ -53,16 +53,17 @@ fun SetupNavGraph(
         }
     }
 }
-    @Composable
-    private fun ClassesScreenRoot(
-        navigateAction: (ClassesNavigation) -> Unit,
-        viewModel: ClassesScreenViewModel = hiltViewModel()
-    ) {
-        ClassesScreen(
-            viewModel::onAction,
-            viewModel.state
-        )
-    }
+
+@Composable
+private fun ClassesScreenRoot(
+    navigateAction: (ClassesNavigation) -> Unit,
+    viewModel: ClassesScreenViewModel = hiltViewModel()
+) {
+    ClassesScreen(
+        viewModel::onAction,
+        viewModel.state
+    )
+}
 
 sealed class ClassesNavigation {
     data class ToClassDetail(val classId: String) : ClassesNavigation()

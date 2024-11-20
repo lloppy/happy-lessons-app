@@ -1,8 +1,9 @@
 package com.lloppy.hapson.screen.classes
 
-import androidx.compose.runtime.State
+import android.util.Log
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.lloppy.hapson.iterator.ClassIteratorImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -12,20 +13,22 @@ class ClassesScreenViewModel @Inject constructor(
     private val _state = mutableStateOf(ClassesScreenState("org1"))
     val state: ClassesScreenState = _state.value
 
-    fun getClasses(){
-        _state.value.classes
-    }
-
-
     fun onAction(action: ClassesAction) {
         when (action) {
             is ClassesAction.OnClassSelected -> {
                 handleClassSelection(action.classId)
             }
+            is ClassesAction.OnAddNewClass -> {
+                handleOnAddNewClass(action.classId)
+            }
         }
     }
 
+    private fun handleOnAddNewClass(classId: String) {
+        Log.e("iterator", "handleOnAddNewClass, $classId")
+    }
+
     private fun handleClassSelection(classId: String) {
-        println("Класс с ID $classId выбран.")
+        Log.e("iterator", "Класс с ID $classId выбран.")
     }
 }

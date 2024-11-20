@@ -3,12 +3,12 @@ package com.lloppy.hapson.repository
 data class Organization(
     val id: String,
     val name: String,
-    val classes: List<Class> = mutableListOf()
+    val classModels: List<ClassModel> = mutableListOf()
 )
 
-data class Class(
+data class ClassModel(
     val id: String,
-    val name: String,
+    var name: String,
     val teachers: List<Teacher> = mutableListOf(),
     val students: List<Student> = mutableListOf(),
     val schedule: Schedule
@@ -27,11 +27,11 @@ data class Schedule(
 data class Teacher(
     val id: String,
     val name: String,
-    val classes: List<Class> = mutableListOf()
+    val classModels: List<ClassModel> = mutableListOf()
 )
 
 data class Student(
     val id: String,
     val name: String,
-    val classes: List<Class> = mutableListOf()
+    val classModels: List<ClassModel> = mutableListOf()
 )

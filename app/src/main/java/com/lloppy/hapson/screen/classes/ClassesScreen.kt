@@ -14,15 +14,14 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import com.lloppy.hapson.repository.Class
+import com.lloppy.hapson.repository.ClassModel
 
 sealed class ClassesAction {
     data class OnClassSelected(val classId: String) : ClassesAction()
+    data class OnAddNewClass(val classId: String) : ClassesAction()
 }
 
 
@@ -38,10 +37,10 @@ fun ClassesScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        if (state.classes!!.isNotEmpty()) {
+        if (state.classModels.isNotEmpty()) {
             LazyColumn {
-                items(state.classes) { classItem ->
-                    ClassItem(classItem){
+                items(state.classModels.toList()) { classItem ->
+                    ClassItem(classItem) {
                         onAction(ClassesAction.OnClassSelected(classItem.id))
                     }
                     Spacer(modifier = Modifier.height(8.dp))
@@ -50,20 +49,20 @@ fun ClassesScreen(
         } else {
             Text(text = "Нет доступных классов")
         }
-        
-        Button(modifier = Modifier.fillMaxWidth(), onClick = { onAction }) {
+
+        Button(modifier = Modifier.fillMaxWidth(), onClick = { onAction.invoke(ClassesAction.OnAddNewClass("class" + state.classModels.getLength() + 1 )) }) {
             
         }
     }
 }
 
 @Composable
-fun ClassItem(classItem: Class, onClick: () -> Unit) {
+fun ClassItem(classModelItem: ClassModel, onClick: () -> Unit) {
     Card(modifier = Modifier.fillMaxWidth().clickable(onClick = onClick)) {
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = classItem.name, style = MaterialTheme.typography.titleSmall)
-            Text(text = "Преподаватели: ${classItem.teachers.joinToString { it.name }}")
-            Text(text = "Ученики: ${classItem.students.joinToString { it.name }}")
+            Text(text = classModelItem.name, style = MaterialTheme.typography.titleSmall)
+            Text(text = "Преподаватели: ${classModelItem.teachers.joinToString { it.name }}")
+            Text(text = "Ученики: ${classModelItem.students.joinToString { it.name }}")
         }
     }
 }

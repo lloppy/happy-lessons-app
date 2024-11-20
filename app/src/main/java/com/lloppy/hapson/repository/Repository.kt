@@ -5,8 +5,8 @@ object Repository {
         Organization(
             id = "org1",
             name = "Школа №1",
-            classes = listOf(
-                Class(
+            classModels = listOf(
+                ClassModel(
                     id = "class1",
                     name = "Математика",
                     teachers = listOf(
@@ -24,7 +24,7 @@ object Repository {
                         )
                     )
                 ),
-                Class(
+                ClassModel(
                     id = "class2",
                     name = "Физика",
                     teachers = listOf(
@@ -40,7 +40,7 @@ object Repository {
                         )
                     )
                 ),
-                Class(
+                ClassModel(
                     id = "class3",
                     name = "Литература",
                     teachers = listOf(
@@ -61,8 +61,8 @@ object Repository {
         Organization(
             id = "org2",
             name = "Гимназия №2",
-            classes = listOf(
-                Class(
+            classModels = listOf(
+                ClassModel(
                     id = "class4",
                     name = "Химия",
                     teachers = listOf(
@@ -79,7 +79,7 @@ object Repository {
                         )
                     )
                 ),
-                Class(
+                ClassModel(
                     id = "class5",
                     name = "Биология",
                     teachers = listOf(
@@ -95,8 +95,8 @@ object Repository {
         Organization(
             id = "org3",
             name = "Лицей №3",
-            classes = listOf(
-                Class(
+            classModels = listOf(
+                ClassModel(
                     id = "class6",
                     name = "История",
                     teachers = listOf(
@@ -113,7 +113,7 @@ object Repository {
                         )
                     )
                 ),
-                Class(
+                ClassModel(
                     id = "class7",
                     name = "География",
                     teachers = listOf(),
@@ -134,7 +134,7 @@ object Repository {
         return organizations.find { it.id == orgId }
     }
 
-    fun getClassesInOrganization(orgId: String): List<Class>? {
-        return organizations.find { it.id == orgId }?.classes
+    fun getClassesInOrganization(orgId: String): List<ClassModel>? {
+        return organizations.find { it.id == orgId }?.classModels
     }
 }

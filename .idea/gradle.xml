@@ -10,6 +10,15 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/design-system" />
+            <option value="$PROJECT_DIR$/core/navigation" />
+            <option value="$PROJECT_DIR$/course_feature" />
+            <option value="$PROJECT_DIR$/course_feature/presentation" />
+            <option value="$PROJECT_DIR$/login_feature" />
+            <option value="$PROJECT_DIR$/login_feature/presentation" />
+            <option value="$PROJECT_DIR$/profile_feature" />
+            <option value="$PROJECT_DIR$/profile_feature/presentation" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

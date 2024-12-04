@@ -9,7 +9,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ChatScreenViewModel @Inject constructor(
 ) : ViewModel() {
-    private val _state = mutableStateOf(ChatScreenState())
-    val state: State<ChatScreenState> = _state
+//    private val _state = mutableStateOf(ChatScreenState())
+//    val state: State<ChatScreenState> = _state
 
 }

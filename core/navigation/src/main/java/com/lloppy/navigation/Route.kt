@@ -18,4 +18,8 @@ sealed interface Route {
     @Serializable
     data object ClassesScreen: Route
 
+    @Serializable
+    data object CoursesSearch: Route
+
+
 }

@@ -1,4 +1,4 @@
-package com.lloppy.hapson.repository
+package com.lloppy.presentation.repository
 
 import com.lloppy.hapson.course_feature.data.Chat
 import com.lloppy.hapson.course_feature.data.Lesson
@@ -9,7 +9,7 @@ import com.lloppy.hapson.course_feature.data.Schedule
 import com.lloppy.hapson.course_feature.data.User
 import com.lloppy.presentation.data.Course
 
-object Repository {
+object CoursesRepository {
     private val chats = listOf(
         Chat(
             id = "chat1",

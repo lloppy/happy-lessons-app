@@ -1,7 +1,7 @@
 package com.lloppy.hapson.iterator
 
 import android.util.Log
-import com.lloppy.hapson.course_feature.data.Course
+import com.lloppy.presentation.data.Course
 
 // Паттерн Iterator
 class ClassIteratorImpl(private val capacity: Int) : Iterable<Course> {

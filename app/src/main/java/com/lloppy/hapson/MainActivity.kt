@@ -15,6 +15,7 @@ import com.lloppy.hapson.screen.groups.GroupsScreen
 import com.lloppy.hapson.ui.theme.HapsonTheme
 import com.lloppy.navigation.Route
 import com.lloppy.presentation.CourseScreen
+import com.lloppy.presentation.CoursesSearch
 import com.lloppy.presentation.LoginScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -40,6 +41,9 @@ class MainActivity : ComponentActivity() {
                             },
                             onClickSignIn = {
                                 navController.navigate(Route.CourseScreen)
+                            },
+                            onClickOrgLogin = {
+                                navController.navigate(Route.CoursesSearch)
                             }
                         )
                     }
@@ -47,6 +51,11 @@ class MainActivity : ComponentActivity() {
                     composable<Route.CourseScreen> {
                         GroupsScreen()
                     }
+
+                    composable<Route.CoursesSearch> {
+                        CoursesSearch()
+                    }
+
 
                     composable<Route.ChatsScreen> {
                         ChatScreen()

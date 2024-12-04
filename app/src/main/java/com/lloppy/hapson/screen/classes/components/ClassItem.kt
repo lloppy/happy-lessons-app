@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.lloppy.hapson.course_feature.data.Course
+import com.lloppy.presentation.data.Course
 
 @Composable
 fun ClassItem(courseItem: Course, onClick: () -> Unit) {
@@ -21,8 +21,8 @@ fun ClassItem(courseItem: Course, onClick: () -> Unit) {
     ) {
         Column(modifier = Modifier.padding(16.dp)) {
             Text(text = courseItem.name, style = MaterialTheme.typography.titleSmall)
-            Text(text = "Преподаватели: ${courseItem.teachers.joinToString { it.name }}")
-            Text(text = "Ученики: ${courseItem.students.joinToString { it.name }}")
+//            Text(text = "Преподаватели: ${courseItem.teachers.joinToString { it.name }}")
+//            Text(text = "Ученики: ${courseItem.students.joinToString { it.name }}")
         }
     }
 }

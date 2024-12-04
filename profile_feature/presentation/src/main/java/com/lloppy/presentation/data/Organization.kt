@@ -1,8 +1,9 @@
 package com.lloppy.hapson.course_feature.data
 
-data class User(
+import com.lloppy.presentation.data.Course
+
+data class Organization(
     val id: String,
     val name: String,
-    val role: Role,
     val courses: List<Course> = mutableListOf()
 )

@@ -15,4 +15,7 @@ sealed interface Route {
     @Serializable
     data object ChatsScreen: Route
 
+    @Serializable
+    data object ClassesScreen: Route
+
 }

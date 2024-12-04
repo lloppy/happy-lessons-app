@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.lloppy.presentation"
+    namespace = "com.lloppy.design_system"
     compileSdk = 34
 
     defaultConfig {
@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:design-system"))
+    implementation(libs.androidx.activity.compose)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)

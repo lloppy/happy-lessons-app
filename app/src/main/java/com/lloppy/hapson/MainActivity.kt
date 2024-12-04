@@ -14,6 +14,7 @@ import com.lloppy.hapson.screen.classes.components.ClassDetailScreen
 import com.lloppy.hapson.screen.groups.GroupsScreen
 import com.lloppy.hapson.ui.theme.HapsonTheme
 import com.lloppy.navigation.Route
+import com.lloppy.presentation.CourseScreen
 import com.lloppy.presentation.LoginScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,7 +34,14 @@ class MainActivity : ComponentActivity() {
                     startDestination = Route.LoginScreen
                 ) {
                     composable<Route.LoginScreen> {
-                        LoginScreen()
+                        LoginScreen(
+                            onClickLogin = {
+                                navController.navigate(Route.CourseScreen)
+                            },
+                            onClickSignIn = {
+                                navController.navigate(Route.CourseScreen)
+                            }
+                        )
                     }
 
                     composable<Route.CourseScreen> {
@@ -45,8 +53,13 @@ class MainActivity : ComponentActivity() {
                     }
 
                     composable<Route.CourseScreen> {
+                        CourseScreen()
+                    }
+
+                    composable<Route.ClassesScreen> {
                         ClassesScreen()
                     }
+
                     composable("class_detail/{classId}") { backStackEntry ->
                         val classId = backStackEntry.arguments?.getString("classId")
                         if (classId != null) {

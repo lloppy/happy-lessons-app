@@ -55,6 +55,8 @@ android {
 dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":login_feature:presentation"))
+    implementation(project(":profile_feature:presentation"))
+    implementation(project(":course_feature:presentation"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

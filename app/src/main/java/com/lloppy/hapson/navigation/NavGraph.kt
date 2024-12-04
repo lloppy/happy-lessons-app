@@ -9,7 +9,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.lloppy.hapson.screen.chats.ChatScreen
-import com.lloppy.hapson.screen.classes.ClassDetailScreen
+import com.lloppy.hapson.screen.chats.ChatScreenViewModel
+import com.lloppy.hapson.screen.classes.components.ClassDetailScreen
 import com.lloppy.hapson.screen.classes.ClassesScreen
 import com.lloppy.hapson.screen.classes.ClassesScreenViewModel
 import com.lloppy.hapson.screen.groups.GroupsScreen
@@ -31,16 +32,28 @@ fun SetupNavGraph(
         }
 
         composable(Screen.Chats.route) {
-            ChatScreen()
+            ChatsScreenRoot(
+                navigateAction = { navigation ->
+                    when (navigation) {
+                        is ScreenNavigation.OnChatSelected -> {
+                            navHostController.navigate("chat_detail/${navigation.chatId}")
+                        }
+
+                        else -> {}
+                    }
+                }
+            )
         }
 
         composable(Screen.Classes.route) {
             ClassesScreenRoot(
                 navigateAction = { navigation ->
                     when (navigation) {
-                        is ClassesNavigation.ToClassDetail -> {
+                        is ScreenNavigation.ToClassDetail -> {
                             navHostController.navigate("class_detail/${navigation.classId}")
                         }
+
+                        else -> {}
                     }
                 }
             )
@@ -56,7 +69,7 @@ fun SetupNavGraph(
 
 @Composable
 private fun ClassesScreenRoot(
-    navigateAction: (ClassesNavigation) -> Unit,
+    navigateAction: (ScreenNavigation) -> Unit,
     viewModel: ClassesScreenViewModel = hiltViewModel()
 ) {
     ClassesScreen(
@@ -65,6 +78,19 @@ private fun ClassesScreenRoot(
     )
 }
 
-sealed class ClassesNavigation {
-    data class ToClassDetail(val classId: String) : ClassesNavigation()
+@Composable
+private fun ChatsScreenRoot(
+    navigateAction: (ScreenNavigation) -> Unit,
+    viewModel: ChatScreenViewModel = hiltViewModel()
+) {
+    ChatScreen(
+        viewModel::onAction,
+        viewModel.state
+    )
+}
+
+
+sealed class ScreenNavigation {
+    data class OnChatSelected(val chatId: String) : ScreenNavigation()
+    data class ToClassDetail(val classId: String) : ScreenNavigation()
 }

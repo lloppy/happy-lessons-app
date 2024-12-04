@@ -1,10 +1,15 @@
 package com.lloppy.hapson.screen.chats
 
-import com.lloppy.hapson.repository.ClassModel
-import com.lloppy.hapson.repository.Organization
+import com.lloppy.hapson.course_feature.data.Chat
 import com.lloppy.hapson.repository.Repository
 
 data class ChatScreenState(
-    val organization: Organization = Repository.getOrganizationById("org1")!!,
-    val classModels: List<ClassModel>? = Repository.getClassesInOrganization(organization.id)
-)
+    val chatsIds: List<String>,
+    val chats: MutableList<Chat> = mutableListOf()
+) {
+    init {
+        Repository.getChatsList(chatsIds).forEach { chatModel ->
+            chats.add(chatModel)
+        }
+    }
+}

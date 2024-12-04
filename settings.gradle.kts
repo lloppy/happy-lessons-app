@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hapson"
 include(":app")
- 
+include(":network")

@@ -13,17 +13,6 @@ class ClassesScreenViewModel @Inject constructor(
     private val _state = mutableStateOf(ClassesScreenState("org1"))
     val state: ClassesScreenState = _state.value
 
-    fun onAction(action: ClassesAction) {
-        when (action) {
-            is ClassesAction.OnClassSelected -> {
-                handleClassSelection(action.classId)
-            }
-            is ClassesAction.OnAddNewClass -> {
-                handleOnAddNewClass(action.classId)
-            }
-        }
-    }
-
     private fun handleOnAddNewClass(classId: String) {
         Log.e("iterator", "handleOnAddNewClass, $classId")
     }

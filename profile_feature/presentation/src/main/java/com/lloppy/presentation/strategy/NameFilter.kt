@@ -2,7 +2,7 @@ package com.lloppy.presentation.strategy
 
 import com.lloppy.presentation.data.Course
 
-// Паттерн State
+// Паттерн Strategy
 class NameFilter(private var nameQuery: String?) : Filterable {
     override fun applyFilter(courses: List<Course>): List<Course> {
         return if (!nameQuery.isNullOrEmpty()) {

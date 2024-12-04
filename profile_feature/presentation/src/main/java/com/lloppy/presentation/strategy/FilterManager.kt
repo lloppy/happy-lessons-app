@@ -2,7 +2,7 @@ package com.lloppy.presentation.strategy
 
 import com.lloppy.presentation.data.Course
 
-// Паттерн State
+// Паттерн Strategy
 class FilterManager {
     fun applyFilters(filters: List<Filterable>, originalList: List<Course>): List<Course> {
         var filteredList = originalList

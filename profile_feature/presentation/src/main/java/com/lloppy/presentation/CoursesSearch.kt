@@ -45,7 +45,7 @@ fun CoursesSearch() {
             onValueChange = {
                 searchQuery = it
 
-                // Паттерн State
+                // Паттерн Strategy
                 val nameFilter = NameFilter(searchQuery)
                 val organizationFilter = OrganizationFilter(selectedOrganizationId)
 

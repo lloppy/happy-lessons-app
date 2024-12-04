@@ -20,8 +20,7 @@ import com.lloppy.hapson.screen.classes.components.ClassesAction
 
 @Composable
 fun ClassesScreen(
-    onAction: (ClassesAction) -> Unit,
-    state: ClassesScreenState
+
 ) {
     Column(
         modifier = Modifier
@@ -32,6 +31,7 @@ fun ClassesScreen(
 
         Spacer(modifier = Modifier.height(16.dp))
 
+            /*
         if (state.classModels.isNotEmpty()) {
             LazyColumn {
                 items(state.classModels.toList()) { classItem ->
@@ -49,13 +49,7 @@ fun ClassesScreen(
             onClick = { onAction.invoke(ClassesAction.OnAddNewClass("class" + state.classModels.getLength() + 1)) }) {
             Text(text = "Добавить класс")
         }
-    }
-}
 
-@Preview(name = "classes")
-@Composable
-private fun PreviewClassesScreen() {
-    ClassesScreen(
-        {}, ClassesScreenState("org2")
-    )
+             */
+    }
 }

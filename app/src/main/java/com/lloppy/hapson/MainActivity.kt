@@ -4,13 +4,17 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.lloppy.hapson.navigation.SetupNavGraph
-import com.lloppy.hapson.navigation.createExternalRouter
-import com.lloppy.hapson.navigation.navigate
+import com.lloppy.hapson.screen.chats.ChatScreen
+import com.lloppy.hapson.screen.classes.ClassesScreen
+import com.lloppy.hapson.screen.classes.components.ClassDetailScreen
+import com.lloppy.hapson.screen.groups.GroupsScreen
 import com.lloppy.hapson.ui.theme.HapsonTheme
+import com.lloppy.navigation.Route
+import com.lloppy.presentation.LoginScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,15 +28,32 @@ class MainActivity : ComponentActivity() {
             HapsonTheme {
                 navController = rememberNavController()
 
-                SetupNavGraph(
-                    navController,
-                    context = this@MainActivity,
-                    lifecycleScope = lifecycleScope,
-                    lifecycleOwner = this@MainActivity,
-                    router = createExternalRouter { screen, params ->
-                        navController.navigate(screen, params)
+                NavHost(
+                    navController = navController,
+                    startDestination = Route.LoginScreen
+                ) {
+                    composable<Route.LoginScreen> {
+                        LoginScreen()
                     }
-                )
+
+                    composable<Route.CourseScreen> {
+                        GroupsScreen()
+                    }
+
+                    composable<Route.ChatsScreen> {
+                        ChatScreen()
+                    }
+
+                    composable<Route.CourseScreen> {
+                        ClassesScreen()
+                    }
+                    composable("class_detail/{classId}") { backStackEntry ->
+                        val classId = backStackEntry.arguments?.getString("classId")
+                        if (classId != null) {
+                            ClassDetailScreen(classId)
+                        }
+                    }
+                }
             }
         }
     }

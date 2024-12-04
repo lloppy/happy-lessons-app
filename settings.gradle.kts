@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hapson"
 include(":app")
-include(":network")
+include(":core:navigation")
+include(":course_feature:presentation")
+include(":login_feature:presentation")

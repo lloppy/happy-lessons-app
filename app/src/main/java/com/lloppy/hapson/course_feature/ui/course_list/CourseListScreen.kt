@@ -1,4 +1,9 @@
 package com.lloppy.hapson.course_feature.ui.course_list
 
-class CourseListScreen {
+import androidx.compose.runtime.Composable
+
+@Composable
+fun CourseListScreen(
+
+) {
 }
